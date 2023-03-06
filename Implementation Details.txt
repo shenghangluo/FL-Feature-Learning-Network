@@ -12,7 +12,7 @@ Training
 Testing
 1. We take a testing data sequence of length 2^16 and append 100 transient symbols at the very beginning and end, which gives us a testing input feature shape of (2^16+200)
 2. We firstly input this long testing data sequence into the trained network, and extract the output from the bi-directional GRU
-3. Then we, instead of reshaping the output in Tensorflow, reshape the output in MATLAB, since the batch_size changes to 1 in testing mode, which made some troubles when we tried to do this in Tensorflow.
+3. Then we, instead of reshaping the output in Tensorflow, reshape the output and generate learned features for testing data in MATLAB, since the batch_size changes to 1 in testing mode, which made some troubles when we tried to do this in Tensorflow.
 4. After it, we put the reshaped output back in Tensorflow to process it by the trained FNN, and gather the testing results.
 
 Pruning
